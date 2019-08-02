@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>JavaScript - knowledge summary</title>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      max-width: 80%;
+      margin: auto;
+      background-color: #434343;
+      color: #efefef;
+      font-size: 20px;
+      font-family: roboto, arial, sans-serif;
+    }
+
+    pre {
+      min-width: 1000px;
+      padding-top: 20px;
+      border-radius: 10px;
+      background-color: #f5f5f5;
+      color: black;
+      font-size: 0.9em;
+    }
+
+    span {
+      color: royalblue;
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+
+    .lineThrough {
+      text-decoration: line-through;
+      color: goldenrod;
+      font-size: 1em;
+    }
+
+    h4 {
+      color: chocolate;
+      font-style: italic;
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+      transition: 0.3s;
+    }
+
+    a:hover {
+      color: royalblue;
+    }
+
+    .lineThrough {
+      text-decoration: line-through;
+      color: goldenrod;
+      font-size: 1em;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>JavaScript knowledge summary:</h2>
+
+  <h3>Spis treści:</h3>
+  <ul>
+    <li><a href="#variables">Variables</a></li>
+    <li><a href="#operators">Operators</a></li>
+    <li><a href="#string">String</a></li>
+    <li><a href="#number">Number</a></li>
+    <li><a href="#conditions">Conditions</a></li>
+    <li><a href="#loops">Loops</a></li>
+    <li><a href="#arrays">Arrays</a></li>
+    <li><a href="#function">Function</a></li>
+    <li><a href="#math">Math</a></li>
+    <li><a href="#dom">Document Object Model</a></li>
+    <li><a href="#objects">Objects</a></li>
+    <li><a href="#class">Class</a></li>
+    <li><a href="#other">Others</a></li>
+  </ul>
+
+  <section>
+    <h3 id="variables">Variables:</h3>
+    <pre>
+      <span>var:</span>
+        - zasięg funkcyjny,
+        - hoisting,
+        - obiekt globalny (w window),
+        - można deklarować ponownie.
+
+      <span>let:</span> 
+        - zasięg blokowy,
+        - brak hositingu,
+        - nie można redeklarować:
+        <span class="lineThrough">let a = 5, let a = 7</span> 
+        let a = 5, a = 7.
+          
+      <span>const:</span>
+        - zasięg blokowy,
+        - brak hositingu,
+        - stała wartość bez możliwości redeklaracji,
+        - ochrona wartości i referencji 
+        (można modyfikować obiekty, które są przypisane),
+        - trzeba zawsze zainicjować <span class="lineThrough">(const a)</span> (const a = 5).
+    </pre>
+  </section>
+
+  <section>
+    <h3 id="operators">Operators</h3>
+    <pre>
+      let value = 2
+
+      inkrementacja: <span>value++</span>      // najpierw zwraca potem dodaje
+      dekrementacja: <span>value--</span>     // najpierw zwraca potem odejmuje
+      preinkrementacja: <span>++value</span>   // najpierw dodaje potem zwraca
+      predekrementajca: <span>--value</span>   // najpierw odejmuje potem zwraca
+
+      value += 10     // 12
+      value -= 10     // -8
+      value *= 10     // 20
+      value /= 10     // 0.2
+
+      <span>%</span> - modulo, reszta z dzielenia
+      10 % 9          // 1
+
+      <span>**</span> - potęga
+      2**5            // 32
+
+      <span>==</span>      równe
+      <span>!=</span>     nie równe
+      <span>===</span>     identyczne (wartość i typ)
+      <span>!==</span>     nieidentyczny (wartość lub typ)
+      <span>></span>     większe niż
+      <span>&lt</span>     mniejsze niż
+      <span>>=</span>     większy lub równy
+      <span>&lt=</span>     mniejszy lub równy
+
+      Object.is()   to jest to samo co ===
+      np. Object.is(1, 1)     // true
+
+      <span>&&</span>      Logiczne "i", wszystkie warunki muszą być true
+      <span>||</span>      Logiczne "lub", jeden warunek musi być true
+      <span>!</span>       Logiczne "nie"
+
+      Operator trójargumentowy (ternary operator):
+
+      <span>conditional ? (if condition is true) : (if condition is false);</span>
+
+      np.: 3 > 2 ? "tak" : "nie";     // tak
+    </pre>
+  </section>
+
+  <section>
+    <h3 id="string">String</h3>
+    <pre>
+      let name = Wojciech;
+          
+      name.toUpperCase();     // WOJCIECH
+      name.toLowerCase();     // wojciech
+      name.length;            // 8
+      name[2];                // j
+      name.charArt(2);        // j
+      name.indexOf('o')       // 1
+      name.includes('c')      // true
+
+      .trim();        - pozbywa się białych znaków na początku i końcu łańcucha
+      .repeat();      - skopiowanie łańcucha
+      .slice(start, end) - wycinanie fragmentu łańcucha,
+                          start(początek), end(koniec - bez tego)
+      name.slice(1,4)     // ojc
+          
+      String(100);        // "100"
+    </pre>
+  </section>
+
+  <section>
+    <h3 id="number">Number</h3>
+    <pre>
+      .toFixed() - zaokrąglenie, zwraca wartość która jest stringiem
+      .toFixed()      // zaokrągla do liczby całkowitej
+      .toFixed(1)     // zaokrągla do jednego miejsca po przecinku
+
+      .toString() - zmiana typu Number na String
+      .toString()     // zamiana na system dziesiętny
+      .toString(2)    // zamiana na system dwójkowy
+
+      Number.isInteger()  - czy liczba jest całkowita
+      Number.isFinite()   - czy liczba jest skończona
+      Number('200')       // 200
+      Number(true)        // 1
+      Number("")          // 0
+    </pre>
+  </section>
+
+  <section>
+    <h3 id="conditions">Conditions</h3>
+    <pre>
+      if (warunek) {
+          Tu operacje;
+      } else if (warunek_2) {
+          Kolejne operacje;
+      } else {
+          Ostatnie operacje;
+      }
+
+      ---------------------------------------
+
+      switch(expression){
+          case 0: 
+              operacje
+              break;
+          case 1:
+                operacje
+                break;
+          case n:
+              operacje
+              break;
+          default:
+              operacje
+      }
+
+      Przykład:
+
+      switch (new Date().getDay()) {
+          case 0:
+              day = "Sunday";
+              break;
+          case 1:
+              day = "Monday";
+              break;
+          case 2:
+              day = "Tuesday";
+              break;
+          case 3:
+              day = "Wednesday";
+              break;
+          case 4:
+              day = "Thursday";
+              break;
+          case 5:
+              day = "Friday";
+              break;
+          case 6:
+              day = "Saturday";
+      }
+    </pre>
+  </section>
+
+  <section>
+    <h3 id="loops">Loops</h3>
+    <pre>
+      for(inicjalizacja; warunek; inkrementacja){
+          operacje;
+      }
+
+      for(let i = 0; i &lt 10; i++){
+          console.log(i);
+      }
+
+      ---------------------------------------
+
+      while (warunek){
+          powtarzane operacje;
+      }
+
+      let i = 0;
+      while (i &lt 10){
+          i++;
+          console.log(i);
+      }
+
+      ---------------------------------------
+
+      do {
+          powtarzane operacje;
+      } while (warunek);
+
+      ---------------------------------------
+
+      for (const jakaśNazwaZmiennej of tablica ){
+          operacja iteracji po każdym elemencie tablicy;
+      }
+
+      np.:
+      const arr = [1, 2, 3, 4, 5];
+
+      for (const number of arr){
+          console.log(i);
+      }
+
+      // 1, 2, 3, 4, 5
+    </pre>
+  </section>
+
+  <section>
+    <h3 id="arrays">Arrays</h3>
+    <pre>
+      const newArray = []     // tworzenie tablicy
+
+      <span>.length;</span>       // zwraca długość tablicy
+      newArray.length = 0;    // zerowanie tablicy
+
+      <span>.push();</span>       // dodaje element na koniec tablicy
+      <span>.unshift();</span>    // dodawanie elementu na początku tablicy
+      <span>.pop();</span>        // usuwa ostatni element z tablicy
+      <span>.shift();</span>      // usuwa pierwszy element z tablicy
+      <span>.concat();</span>     // dodawanie tablic do siebie i tworzenie nowej
+          newArray = firstArray.concat(secondArray);
+          ES6: newArray = [...firstArray, ...secondArray];
+
+      <span>.slice();</span>
+      newArray.slice(2);      // wycinamy od 2 indexu
+      newArray.slice(2,5);    // wycinamy od 2 indeksu do 5 indexu (ale bez niego)
+      newArray.slice(0);      // pobieramy całą tablice
+      newArray.slice(-1);     // zwraca ostatni element
+      newArray.slice(-3);     // zwraca 3 ostatnie elementy
+
+      <span>.splice();</span>
+      newArray.splice(2);     // usuwa wszystkie elementy od indexu 2
+      newArray.splice(0,1);   // usuwa od indexu 0, jeden element
+      newArray.splice(0);     // zeruje całą tablice
+      newArray.splice(0,1, "somethink");   // usuwa element i od razu dodaje
+
+      <span>.sort();</span>        // sortowanie alfabetyczne
+      <span>.indefOf();</span>     // szuka elementu w tablicy i zwraca jego index
+      <span>.lastIndexOf();</span> // szuka od końca
+      <span>.includes();</span>    // sprawdza tablice czy zawiera element, zwraca true, false
+      <span>.join();</span>        // otrzymujemy stringa oddzielonego przecinkami
+      <span>.join(" --- ");</span> // otrzymujemy stringa oddzielonego ---
+      <span>.reverse();</span>     // odwraca kolejność tablicy
+      <span>.split("");</span>    // zamienia string na tablice, "someString".split(""); 
+      <span>.find();</span>       // zwraca element, który jako pierwszy zwróci true
+
+      ################################
+
+      <span>.map();</span>         // map tworzy nowa tablica o tej samej długości
+      const = numbers = [2, 3, 4];
+      const doubleNumbers = numbers.map(number => number * 2); // [4, 6, 8];
+
+      ################################
+
+      <span>.filter();</span>      // zwraca nową tablice złożoną z tych elementów,
+                          przy których iterator zwrócił true.
+      
+      const users = ['adam', 'janek', 'bolek', 'leon'];
+      const nameSixLetter = users.filter(user => user.length === 5);
+
+      // nameSixLetter = ['janek', 'bolek'];
+
+      ################################
+
+      <span>.forEach(); </span>    // iteracja po elementach tablicy
+
+      .forEach( elementy, index, tablica ) --> mamy 3 parametry:
+                  - elementy - są to kolejne elementy z tablicy
+                  - index - sa to kolejne indexy z tablicy
+                  - tablica - jest to tablica na której wykonujemy .forEach
+
+      const usersAge = [20, 30, 40, 50];
+      let usersAgeAll = 0;
+
+      usersAge.forEach(age => usersAgeAll += age);
+      
+      // usersAgeAll = 140
+
+      ################################
+
+      <span>Destructuring Arrays:</span>
+
+      const [firstName, lastName, age] = [Jan, Kowalski, 25];
+      lub
+      const info = [Jan, Kowalski, 25];
+      const [firstName, lastName, age] = info;
+
+      firstName       // Jan
+    </pre>
+  </section>
+
+  <section>
+    <h3 id="function">Function</h3>
+    <pre>
+      Wyrażenie funkcyjne (Function Expression):
+
+      const fName = function() {
+          code;
+      };
+
+      fName();        // wywołanie funkcji;
+
+      ---------------------------------------
+      Deklaracja funkcji:
+
+      function fName() {
+          code;
+      };
+
+      np. function addNumber(x, y) {
+          return x + y;
+      };
+
+      ---------------------------------------
+      Funkcja strzałkowa (Arrow function):
+
+      const fName = () => {
+          code;
+      };
+      
+      - nie można wymusić co ma być pod 'this' wewnątrz funkcji,
+      - funkcja ma dostęp do 'this' które jest zdefiniowane o jeden zakres wyżej,
+      - funkcje strzałkowe nie mają prototypu.
+
+      ---------------------------------------
+      Wartości domyśle w funkcji:
+
+      const fName = (x = 1, y = 0) => {
+          let result = x + y;
+          return result;
+      };
+
+      ---------------------------------------
+      Callback:
+
+      function add(number){
+          number++;
+          return number;
+      }
+
+      function count(x, callback){
+          return callback(x);
+      }
+      
+      count(5, add);      // 6
+
+      Inny przykład callback to:
+      a) .addEventListener("click", showSomethink);
+      b) setInterval(showTime, 2000);
+    </pre>
+  </section>
+
+  <section>
+    <h3 id="math">Math</h3>
+    <pre>
+      Math.floor(Math.random() * 10);      // od 0 do 10 (bez 10)
+
+      // od min do max (bez max)
+      const randomNumber = (min, max) => {
+          const number = Math.floor(Math.random() * (max - min) + min);
+          return number;
+      }
+
+      // od min do max (z max)
+      const randomNumber = (min, max) => {
+          const number = Math.floor(Math.random() * (max - min + 1) + min);
+          return number;
+      }
+    </pre>
+  </section>
+
+  <section>
+    <h3 id="dom">Document Object Model</h3>
+    <pre>
+      Pobieranie elementu:
+
+      document.querySelector('selector');
+      document.getElementyById('idName');
+
+      document.querySelectorAll('selectory');     // nodeList
+      document.getElementsByTagName('');          // HTMLCollections
+      document.getElementsByClassName('');        // HTMLCollections
+
+      .getAttribute('attribute');     // pobieranie atrybutu
+      .textContent;                   // pobranie tesktu z elementu
+      .innerHTML;                     // pobieranie tesktu ze znacznikami 
+      .classList;                     // dostanie się do wszystkich klas elementu
+
+      ---------------------------------------
+      Modyfikacja elementów:
+
+      .textContent = "Nowy kontent";          // zmiana tesktu
+      .innerHTML = '&ltp>Nowy element &lt/p>';  // dodanie nowego elementu
+      
+      .style.fontSize = "30px";
+      .style.backgroundColor = "#000";
+
+      .classList.add('someClass');        // dodawanie klasy
+      .classList.remove('someClass');     // usuwanie klasy
+      .classList.toggle('someClass');     // przełączanie klasy
+
+      .className = "";                    // dostanie się do klasy, nadpisuje
+      .id = "";                           // dostanie się do ID, nadpisuje
+
+      .setAttribute('title', "uwaga: ważne!");    // ustawienie atrybutu, nadpisuje
+
+      ---------------------------------------
+      Dodawanie elementów
+
+      .createElement('');     // tworzenie
+      .appendChild();         // dodawanie
+
+      ---------------------------------------
+      Zdarzenia:
+
+      .addEventListener('zdarzenie', function(){
+          code;
+      });
+
+      click
+      dblclick
+      scroll
+      mousedown
+      mouseup
+      mousemove
+      keydown
+      keyup
+
+      ---------------------------------------
+      Inne:
+
+      const img = [...document.images]; - pobranie wszystkich zdjęć ze strony
+
+      const liList = document.querySelectorAll('li');
+      const liArray = [...liList];    - zamiana pseudotablicy na tablice
+
+      h2.classList.contains('nazwaKlasy'); - sprawdzenie czy element ma daną klase, 
+                                              zwraca true/false
+    </pre>
+  </section>
+
+  <section>
+    <h3 id="objects">Objects</h3>
+    <pre>
+      Literał obiektu:
+      <span>const objectsName = {};</span>
+
+      Tworzenie obiektu:
+      <span>
+      const someName = {
+          key: value,
+          key_2: value_2,
+          fName() {
+              function code;
+          },
+      }
+      </span>
+      Dodawanie dynamiczne do obiektu:
+      <span>someName.key_3 = value_3;</span>
+      Usuwanie:
+      <span>delete someName.key_3;</span>
+
+      ---------------------------------------
+      This odwołuje się do obiektu na którym wykonywana jest metoda:
+      <span>
+      const counter = {
+          score: 0;
+
+          increment() {
+              this.score++;
+          }
+      }
+      counter.increment();        // 1
+      counter.increment();        // 2
+      </span>
+      ---------------------------------------
+      Tworzenie konstruktora:
+      <span>
+      const Name = function(name_1, name_2){
+          this.name_1 = name_1;
+          this.name_2 = name_2;
+          this.name_3 = function() {
+              ...
+          }
+      }    
+      </span>
+      Tworzenie instancji:
+      <span>
+      const nazwa = new Name("one", "two");
+      </span>
+      Prototyp - aby uniknąć tworzenia metody do każdej instancji,
+                  można użyć prototypu - 'wyciągnąć' metodę z konstruktora.
+      <span>
+      Name.prototype.name_3 = function(name_4){
+          this.name_4 = name_4;
+          ...
+      }
+      </span>
+    </pre>
+  </section>
+
+  <section>
+    <h3 id="class">Class</h3>
+    <pre>
+      // deklaracja:
+      <span>class Species {}</span>
+
+      // tworzenie instancji klasy:
+      <span>const human = new Species();</span>
+
+      class className {
+          constructor(arg1, arg2, arg3){
+              this.arg1 = arg1;
+              this.arg2 = arg2;
+              this.arg3 = arg3;
+          }
+          newMethod_1() {
+              ...
+          }
+          newMethod_2() {
+              ...
+          }
+
+          static anotherName(arg_4) {
+              ...
+          }
+      }
+
+      // wywołanie metody statycznej:
+
+      className.anotherName(...);
+      Tak jak wywołujemy np. Math.floor() itp.
+
+      // dziedziczenie
+
+      class nameClass_1 <span>extends</span> nameClass_2 {
+          constructor(first, second) {
+              <span>super(first);</span> // wywołuje konstruktor 'rodzica', klasy z której dziedziczymy, klasy nadrzędnej
+              this.second = second; // rozszerzone, własne konstruktory
+          }
+      }
+    </pre>
+  </section>
+
+  <section>
+    <h3>Iteratory</h3>
+    <pre>
+      Możemy iterować petlą <span>for - of</span> po każdym obiekcie z symbol.iterator
+
+      1. Iteracja po tablicy:
+      <span>
+      const arr = [1, 2, 3, 4, 5];
+      for (const number of arr){
+          console.log(i);
+      }
+      </span>
+      2. Iteracja po stringu
+      <span>
+      for(let character of "Wojciech"){
+        console.log(character);
+      }
+      </span>
+      3. Można iterować po nodeList
+      <span>
+      const lista = document.querySelectorAll('li');
+      for(let li of lista ){
+        consol.log(li);
+      }
+      </span>
+    </pre>
+  </section>
+
+  <section>
+    <h3 id="other">Others:</h3>
+    <pre>
+      <span>window.innerHeight</span> - określa jaką wielkość ma okno przeglądarki
+      <span>window.innerWidth</span> - określa jaką szerokość na okno przeglądarki
+    </pre>
+  </section>
+
+  <section>
+    <h3>Słowniczek:</h3>
+    <ul>
+      <li>
+        <span>Hoisting</span> - przeniesienie części deklaracji na początek
+        zakresu. Zmienne const i let nie podlegają hoistingowi.
+      </li>
+      <li>
+        <span>Closure (domnkięcie)</span> - mechanizm, który pomaga nam
+        uzyskać dostęp do danej wartości poza funkcją i gdy ta funkcja nie
+        jest już aktywna. W funkcji zwracamy inną funkcję która ma referencję
+        do zmiennych funkcji pierwotnej.
+      </li>
+      <li>
+        <span>Encapsulation (Hermetyzacja)</span> - grupowanie (zamykanie)
+        metod i właściwości w obiekcie. Popularnym rozwiązaniem jest używanie
+        metod pobierających (getter) i dostępowych (setter) do danych w
+        obiekcie. Implementacja staje się ukryta a dostęp do danych w jednym
+        obiekcie jest udostępniany innemu obiektowi za pomoca interfejsu.
+      </li>
+      <li>
+        <span>Polimorfizm</span> - obiekt zachowuję się inaczej w zależności
+        od dostarczanych danych. Polimorficzny w podstawowym znaczeniu to
+        różne postacie tej samej rzeczy, zmiana kształtu.
+      </li>
+      <li>
+        <span>Prototyp</span> - to obiekt w funkcji konstruktora,
+        współdzielony przez wszystkie egzemplarze. Każdy egzemplarz ma dostęp
+        do obiektu prototypu.
+      </li>
+    </ul>
+  </section>
+
+  <!-- <script src="example.js"></script> -->
+</body>
+
+</html>
