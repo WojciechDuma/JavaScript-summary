@@ -83,6 +83,8 @@
     <li><a href="#objects">Objects</a></li>
     <li><a href="#class">Class</a></li>
     <li><a href="#other">Others</a></li>
+    <li><a href="#iterator">Iterators</a></li>
+    <li><a href="#generators">Generators</a></li>
   </ul>
 
   <section>
@@ -168,14 +170,16 @@
       name.charArt(2);        // j
       name.indexOf('o')       // 1
       name.includes('c')      // true
-
-      .trim();        - pozbywa się białych znaków na początku i końcu łańcucha
-      .repeat();      - skopiowanie łańcucha
+      name.slice(1,4)         // ojc
+      name.slice(-3)          // ech - wycina ostatnie 3 litery
       .slice(start, end) - wycinanie fragmentu łańcucha,
-                          start(początek), end(koniec - bez tego)
-      name.slice(1,4)     // ojc
+                           start(początek), end(koniec - bez tego)
+      .trim();           - pozbywa się białych znaków na początku i końcu łańcucha
+      .repeat();         - skopiowanie łańcucha
+      .replace('first', 'second'); - zamienia first na second
+      .include('word');  - sprawdza czy 'word' jest w stringu
           
-      String(100);        // "100"
+      String(100);        // "100", konwersja na String
     </pre>
   </section>
 
@@ -186,13 +190,16 @@
       .toFixed()      // zaokrągla do liczby całkowitej
       .toFixed(1)     // zaokrągla do jednego miejsca po przecinku
 
-      .toString() - zmiana typu Number na String
+      .toString() - zmiana, konwersja na String
       .toString()     // zamiana na system dziesiętny
       .toString(2)    // zamiana na system dwójkowy
 
+      .parseInt() - zamiana na liczbę całkowitą
+      .parseFloat() - zamiana na liczbę dziesiętną
+
       Number.isInteger()  - czy liczba jest całkowita
       Number.isFinite()   - czy liczba jest skończona
-      Number('200')       // 200
+      Number('200')       // 200, konwersja na Number
       Number(true)        // 1
       Number("")          // 0
     </pre>
@@ -446,6 +453,20 @@
   <section>
     <h3 id="math">Math</h3>
     <pre>
+      Math.PI
+      Math.E
+
+      Math.round(2.6);  // 3
+      Math.round(2.4);  // 2
+      Math.ceil(2.4);   // 3, zawsze zaokrągla do góry
+      Math.floor(2.8);  // 2, zawsze zaokrągla do dołu
+
+      Math.sqrt(64);    // 8, pierwiastek
+      Math.abs(-4);     // 4, wartość bezwględna
+      Math.pow(8, 2);   // 64, potęga
+
+      Math.random();    // random between 0-1
+
       Math.floor(Math.random() * 10);      // od 0 do 10 (bez 10)
 
       // od min do max (bez max)
@@ -636,7 +657,7 @@
   </section>
 
   <section>
-    <h3>Iteratory</h3>
+    <h3 id="iterator">Iterators:</h3>
     <pre>
       Możemy iterować petlą <span>for - of</span> po każdym obiekcie z symbol.iterator
 
@@ -664,8 +685,49 @@
   </section>
 
   <section>
+    <h3 id="generators">Generators:</h3>
+    <pre>
+      Tworzymy generator z <span>*</span>(gwiazdką) w nazwie:
+      
+      function *name() {
+        yield 1;
+        yield 2;
+        yield 3;
+      }
+
+      Tworzymy iterator, który ma w sobie funkcje <span>next()</span>:
+      
+      let iterator = name();
+      iterator.next();
+      for(let value of iterator){
+        console.log(value);   // 1,2,3
+      }
+      
+      funkcja next() zwraca dwie wartości: 'value' oraz 'done'
+      
+      ____________________________________________
+      przykład:
+      function *range(from, to) {
+        while (from &lt= to){
+          yield from++;
+        }
+      }
+      for(let value of range(5, 10)){
+        console.log(value);   // 5,6,7,8,9,10
+      }
+
+    </pre>
+  </section>
+
+  <section>
     <h3 id="other">Others:</h3>
     <pre>
+      <span>typeof variableName</span> - wskazuje na typ danych
+      <span>console.table({a:1, b:2})</span> - wyświetla obiekt w tabeli
+      <span>console.error('This is error')</span> - wyświetla error w consoli
+      <span>console.warn('This is warn')</span> - wyświetla ostrzeżenie w consoli
+      <span>console.time('Start')</span> - początek zliczania czasu
+      <span>console.timeEnd('Stop')</span> - koniec zliczania czasu
       <span>window.innerHeight</span> - określa jaką wielkość ma okno przeglądarki
       <span>window.innerWidth</span> - określa jaką szerokość na okno przeglądarki
     </pre>
