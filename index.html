@@ -78,6 +78,7 @@
     <li><a href="#loops">Loops</a></li>
     <li><a href="#arrays">Arrays</a></li>
     <li><a href="#function">Function</a></li>
+    <li><a href="#date">Date</a></li>
     <li><a href="#math">Math</a></li>
     <li><a href="#dom">Document Object Model</a></li>
     <li><a href="#objects">Objects</a></li>
@@ -294,7 +295,7 @@
           operacja iteracji po każdym elemencie tablicy;
       }
 
-      np.:
+      np:
       const arr = [1, 2, 3, 4, 5];
 
       for (const number of arr){
@@ -302,6 +303,27 @@
       }
 
       // 1, 2, 3, 4, 5
+
+      ---------------------------------------
+      for (let nazwaZmiennej in nazwaObiektu){
+        // some code...
+      }
+
+      np:
+
+      const user = {
+        firstName: 'John',
+        lastName: 'Smith',
+        age: 30
+      }
+
+      for(let key in user){
+        console.log(key);     // firstName, lastName, age
+      }
+
+      for(let key in user){
+        console.log(user[key]);     // John, Smith, 30
+      }
     </pre>
   </section>
 
@@ -341,8 +363,20 @@
       <span>.join();</span>        // otrzymujemy stringa oddzielonego przecinkami
       <span>.join(" --- ");</span> // otrzymujemy stringa oddzielonego ---
       <span>.reverse();</span>     // odwraca kolejność tablicy
-      <span>.split("");</span>    // zamienia string na tablice, "someString".split(""); 
-      <span>.find();</span>       // zwraca element, który jako pierwszy zwróci true
+      <span>.split("");</span>     // zamienia string na tablice, "someString".split(""); 
+      <span>.find();</span>        // zwraca element, który jako pierwszy zwróci true
+
+      <span>
+        someArray.sort(function(x, y){
+          return x - y;    //sortowanie liczb od najmniejszej
+        })
+      </span>
+      <span>
+          someArray.sort(function(x, y){
+            return y - x;    //sortowanie liczb od największej
+          })
+        </span>
+      <span>Array.isArray(nazwa)</span> - sprawdza czy podana wartość jest tablicą
 
       ################################
 
@@ -447,6 +481,34 @@
       Inny przykład callback to:
       a) .addEventListener("click", showSomethink);
       b) setInterval(showTime, 2000);
+
+      ---------------------------------------
+      Immidiatley invokable function expression - IIFEs
+      - funkcja którą deklarujemy i wywołujemy 'w tym samym czasie'
+
+      (function(){
+        // somecode...
+      })();
+
+      (function(parametr){
+        // somecode...
+      })('parametr');
+    </pre>
+  </section>
+
+  <section>
+    <h3 id="date">Date</h3>
+    <pre>
+      const today = new Date();
+
+      today.getFullYear();
+      today.getMonth(); // 0 - January, 11 - December
+      today.getDay();   // 0 - Sunday, 6 - Saturday
+      today.getDate();  // zwraca numer dnia
+      today.getHours();
+      today.getMinutes();
+      today.getSeconds();
+      today.getTime();  // czas w sekundach od 01.01.1970
     </pre>
   </section>
 
@@ -566,6 +628,7 @@
           key_2: value_2,
           fName() {
               function code;
+              this.key;
           },
       }
       </span>
