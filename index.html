@@ -32,7 +32,6 @@
 
     span {
       color: royalblue;
-      font-size: 1.2em;
       font-weight: bold;
     }
 
@@ -375,8 +374,10 @@
           someArray.sort(function(x, y){
             return y - x;    //sortowanie liczb od największej
           })
-        </span>
+      </span>
       <span>Array.isArray(nazwa)</span> - sprawdza czy podana wartość jest tablicą
+      <span>Array.from()</span> - pozwala tworzyć tablice z elementów tablicopodobnych
+        np: let newArr = Array.from('WOJCIECH');
 
       ################################
 
@@ -552,66 +553,118 @@
 
       document.querySelector('selector');
       document.getElementyById('idName');
-
       document.querySelectorAll('selectory');     // nodeList
       document.getElementsByTagName('');          // HTMLCollections
       document.getElementsByClassName('');        // HTMLCollections
 
-      .getAttribute('attribute');     // pobieranie atrybutu
-      .textContent;                   // pobranie tesktu z elementu
-      .innerHTML;                     // pobieranie tesktu ze znacznikami 
-      .classList;                     // dostanie się do wszystkich klas elementu
-
       ---------------------------------------
       Modyfikacja elementów:
 
-      .textContent = "Nowy kontent";          // zmiana tesktu
-      .innerHTML = '&ltp>Nowy element &lt/p>';  // dodanie nowego elementu
+      <span>.textContent = "Nowy kontent";</span>            // zmiana tesktu
+      <span>.innerHTML = '&ltp>Nowy element &lt/p>';</span>  // dodanie nowego elementu
+      <span>.classList.add('someClass');</span>              // dodawanie klasy
+      <span>.classList.remove('someClass');</span>           // usuwanie klasy
+      <span>.classList.toggle('someClass');</span>           // przełączanie klasy
+      <span>.replace(firstElement, secondElement)</span>     // zamiana elementów
+      <span>.remove()</span>                                 // usuwanie elementu
+      <span>.removeChild(child[i])</span>                    // usuwanie konkrentego elementu
       
-      .style.fontSize = "30px";
-      .style.backgroundColor = "#000";
-
-      .classList.add('someClass');        // dodawanie klasy
-      .classList.remove('someClass');     // usuwanie klasy
-      .classList.toggle('someClass');     // przełączanie klasy
-
-      .className = "";                    // dostanie się do klasy, nadpisuje
-      .id = "";                           // dostanie się do ID, nadpisuje
-
-      .setAttribute('title', "uwaga: ważne!");    // ustawienie atrybutu, nadpisuje
+      .style.key = "value"; 
+        np:
+        .style.fontSize = "30px";
+        .style.backgroundColor = "#000";
 
       ---------------------------------------
       Dodawanie elementów
 
-      .createElement('');     // tworzenie
-      .appendChild();         // dodawanie
+      <span>.createElement('');</span>     // tworzenie
+      <span>.createTextNode('');</span>    // tworzenie tekstu w elemencie
+      <span>.appendChild();</span>         // dodawanie
 
       ---------------------------------------
       Zdarzenia:
 
-      .addEventListener('zdarzenie', function(){
-          code;
+      .addEventListener('event', functionCallback);
+      .addEventListener('event', function(){
+        // code;
+      });
+      .addEventListener('event', () => {
+        // code;
       });
 
-      click
-      dblclick
-      scroll
-      mousedown
-      mouseup
-      mousemove
-      keydown
-      keyup
+      function callbackFunctionName(event){}
+
+      <span>event.preventDefault();</span> - zapobiega domyślnemu zachowaniu elementu
+      <span>event.target</span> - dostęp do elementu ze zdarzenia
+      <span>event.clientX</span> - odległość w pixelach w odniesieniu do okna przeglądrki
+      <span>event.clientY</span> - odległość w pixelach w odniesieniu do okna przeglądrki
+      <span>event.offsetX</span> - odległość w pixelach w odniesieniu do elementu
+      <span>event.offsetY</span> - odległość w pixelach w odniesieniu do elementu
+      <span>event.key</span> - jaki wcisneliśmy klawisz
+      <span>event.code</span> - kod wciśniętego klawisza
+
+      Mouse events: 
+      - <span>click</span>         // pojedyncze kliknięcie
+      - <span>dblclick</span>      // podwójne kliknięcie
+      - <span>mousedown</span>     // naciśnięcie
+      - <span>mouseup</span>       // po puszczeniu naciśnięcia
+      - <span>mouseenter</span>    // najechanie myszką na element główny
+      - <span>mouseleave</span>    // zjechanie z elementu głównego
+      - <span>mouseover</span>     // najechanie na element - elementu głównego
+      - <span>mouseout</span>      // zjechanie z elementu - elementu głównego
+      - <span>mousemove</span>     // ruch myszką
+
+      Keyboard events:
+      - <span>keydown</span>       // naciskamy przycisk
+      - <span>keypress</span>      
+      - <span>keyup</span>         // puszczamy przycisk
+
+      Other:
+      - <span>submit</span>        // zatwierdzanie np. formularza
+      - <span>input</span>         // cokolwiek robimy w input
+      - <span>focus</span>         // kiedy klikamy w wewnątrz inputa
+      - <span>blur</span>          // kiedy klikamy po zewnątrz inputa
+      - <span>cut</span>           // kiedy zaznaczamy tekst i go wycinamy
+      - <span>paste</span>         // kiedy wklejamy tekst
+      - <span>change</span>        // kiedy zmieniamy wybór np. w select
 
       ---------------------------------------
       Inne:
 
-      const img = [...document.images]; - pobranie wszystkich zdjęć ze strony
+      <span>.getAttribute('attribute')</span> - pobieranie atrybutu
+      <span>.setAttribute('key', 'value')</span> - ustawianie atrybutu
+      <span>.removeAttribute('attribute')</span> - usuwanie atrybutu
+      <span>.hasAttribute('attribute')</span> - sprawdza czy ma atrybut, zwraca true/false
+      <span>.textContent</span> - pobiera lub ustawia tekst
+      <span>.innerHTML</span> - pobiera lub ustawia tekst ze znacznikami
+      <span>.classList</span> - dostanie się do wszystkich klas elementu
+      <span>.className</span> - dostanie się do klasy, nadpisuje
+      <span>.id</span> - dostanie się do ID, nadpisuje
 
-      const liList = document.querySelectorAll('li');
-      const liArray = [...liList];    - zamiana pseudotablicy na tablice
+      <span>window.innerHeight</span> - określa jaką wielkość ma okno przeglądarki wewnątrz
+      <span>window.innerWidth</span> - określa jaką szerokość na okno przeglądarki wewnątrz
+      <span>window.outerHeight</span> - określa jaką wielkość ma okno przeglądarki po zewnątrz
+      <span>window.outerWidth</span> - określa jaką szerokość na okno przeglądarki po zewnątrz
+      <span>window.scrollY</span> 
+      <span>window.scrollX</span>
+      <span>window.location</span> - .hostname, .port, .href, .search, .reload()
+      <span>window.history.go()</span> - .go(-1) - przeniesie nas na stronę wcześniej
+      <span>window.navigator</span> - informacje o przeglądarce 
 
-      h2.classList.contains('nazwaKlasy'); - sprawdzenie czy element ma daną klase, 
-                                              zwraca true/false
+      <span>document.domain</span>  - adres strony
+      <span>document.URL</span> - pełen adres
+      <span>document.all.length</span> - ilość wszystkich znaczników
+
+      <span>.childNodes</span> - dostęp do dzieci NodeList
+      <span>.childNodes[i].nodeType</span> - 1: Element, 3: Text, 8: Comment
+      <span>.children</span> - dostęp do HTMLCollection
+      <span>.children[i]</span> - dostęp do i-tego elementu
+      <span>.firstElementChild</span> - dostęp do pierwszego elementu
+      <span>.childElementCount</span> - ilość elementów
+      <span>.parentNode / .parentElement</span> - dostęp do rodzica
+
+
+
     </pre>
   </section>
 
@@ -791,8 +844,6 @@
       <span>console.warn('This is warn')</span> - wyświetla ostrzeżenie w consoli
       <span>console.time('Start')</span> - początek zliczania czasu
       <span>console.timeEnd('Stop')</span> - koniec zliczania czasu
-      <span>window.innerHeight</span> - określa jaką wielkość ma okno przeglądarki
-      <span>window.innerWidth</span> - określa jaką szerokość na okno przeglądarki
     </pre>
   </section>
 
