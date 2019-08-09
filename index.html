@@ -1,95 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>JavaScript - knowledge summary</title>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>JavaScript - knowledge summary</title>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
 
-  <style>
-    html {
-      scroll-behavior: smooth;
-    }
+      body {
+        max-width: 80%;
+        margin: auto;
+        background-color: #434343;
+        color: #efefef;
+        font-size: 20px;
+        font-family: roboto, arial, sans-serif;
+      }
 
-    body {
-      max-width: 80%;
-      margin: auto;
-      background-color: #434343;
-      color: #efefef;
-      font-size: 20px;
-      font-family: roboto, arial, sans-serif;
-    }
+      pre {
+        min-width: 1000px;
+        padding-top: 20px;
+        border-radius: 10px;
+        background-color: #f5f5f5;
+        color: black;
+        font-size: 0.9em;
+      }
 
-    pre {
-      min-width: 1000px;
-      padding-top: 20px;
-      border-radius: 10px;
-      background-color: #f5f5f5;
-      color: black;
-      font-size: 0.9em;
-    }
+      span {
+        color: royalblue;
+        font-weight: bold;
+      }
 
-    span {
-      color: royalblue;
-      font-weight: bold;
-    }
+      .lineThrough {
+        text-decoration: line-through;
+        color: goldenrod;
+        font-size: 1em;
+      }
 
-    .lineThrough {
-      text-decoration: line-through;
-      color: goldenrod;
-      font-size: 1em;
-    }
+      h4 {
+        color: chocolate;
+        font-style: italic;
+      }
 
-    h4 {
-      color: chocolate;
-      font-style: italic;
-    }
+      a {
+        text-decoration: none;
+        color: white;
+        transition: 0.3s;
+      }
 
-    a {
-      text-decoration: none;
-      color: white;
-      transition: 0.3s;
-    }
+      a:hover {
+        color: royalblue;
+      }
 
-    a:hover {
-      color: royalblue;
-    }
+      .lineThrough {
+        text-decoration: line-through;
+        color: goldenrod;
+        font-size: 1em;
+      }
+    </style>
+  </head>
 
-    .lineThrough {
-      text-decoration: line-through;
-      color: goldenrod;
-      font-size: 1em;
-    }
-  </style>
-</head>
+  <body>
+    <h2>JavaScript knowledge summary:</h2>
 
-<body>
-  <h2>JavaScript knowledge summary:</h2>
+    <h3>Spis treści:</h3>
+    <ul>
+      <li><a href="#variables">Variables</a></li>
+      <li><a href="#operators">Operators</a></li>
+      <li><a href="#string">String</a></li>
+      <li><a href="#number">Number</a></li>
+      <li><a href="#conditions">Conditions</a></li>
+      <li><a href="#loops">Loops</a></li>
+      <li><a href="#arrays">Arrays</a></li>
+      <li><a href="#function">Function</a></li>
+      <li><a href="#date">Date</a></li>
+      <li><a href="#math">Math</a></li>
+      <li><a href="#dom">Document Object Model</a></li>
+      <li><a href="#objects">Objects</a></li>
+      <li><a href="#class">Class</a></li>
+      <li><a href="#other">Others</a></li>
+      <li><a href="#iterator">Iterators</a></li>
+      <li><a href="#generators">Generators</a></li>
+    </ul>
 
-  <h3>Spis treści:</h3>
-  <ul>
-    <li><a href="#variables">Variables</a></li>
-    <li><a href="#operators">Operators</a></li>
-    <li><a href="#string">String</a></li>
-    <li><a href="#number">Number</a></li>
-    <li><a href="#conditions">Conditions</a></li>
-    <li><a href="#loops">Loops</a></li>
-    <li><a href="#arrays">Arrays</a></li>
-    <li><a href="#function">Function</a></li>
-    <li><a href="#date">Date</a></li>
-    <li><a href="#math">Math</a></li>
-    <li><a href="#dom">Document Object Model</a></li>
-    <li><a href="#objects">Objects</a></li>
-    <li><a href="#class">Class</a></li>
-    <li><a href="#other">Others</a></li>
-    <li><a href="#iterator">Iterators</a></li>
-    <li><a href="#generators">Generators</a></li>
-  </ul>
-
-  <section>
-    <h3 id="variables">Variables:</h3>
-    <pre>
+    <section>
+      <h3 id="variables">Variables:</h3>
+      <pre>
       <span>var:</span>
         - zasięg funkcyjny,
         - hoisting,
@@ -111,11 +110,11 @@
         (można modyfikować obiekty, które są przypisane),
         - trzeba zawsze zainicjować <span class="lineThrough">(const a)</span> (const a = 5).
     </pre>
-  </section>
+    </section>
 
-  <section>
-    <h3 id="operators">Operators</h3>
-    <pre>
+    <section>
+      <h3 id="operators">Operators</h3>
+      <pre>
       let value = 2
 
       inkrementacja: <span>value++</span>      // najpierw zwraca potem dodaje
@@ -156,11 +155,11 @@
 
       np.: 3 > 2 ? "tak" : "nie";     // tak
     </pre>
-  </section>
+    </section>
 
-  <section>
-    <h3 id="string">String</h3>
-    <pre>
+    <section>
+      <h3 id="string">String</h3>
+      <pre>
       let name = Wojciech;
           
       name.toUpperCase();     // WOJCIECH
@@ -180,12 +179,13 @@
       .include('word');  - sprawdza czy 'word' jest w stringu
           
       String(100);        // "100", konwersja na String
-    </pre>
-  </section>
+    </pre
+      >
+    </section>
 
-  <section>
-    <h3 id="number">Number</h3>
-    <pre>
+    <section>
+      <h3 id="number">Number</h3>
+      <pre>
       .toFixed() - zaokrąglenie, zwraca wartość która jest stringiem
       .toFixed()      // zaokrągla do liczby całkowitej
       .toFixed(1)     // zaokrągla do jednego miejsca po przecinku
@@ -202,12 +202,13 @@
       Number('200')       // 200, konwersja na Number
       Number(true)        // 1
       Number("")          // 0
-    </pre>
-  </section>
+    </pre
+      >
+    </section>
 
-  <section>
-    <h3 id="conditions">Conditions</h3>
-    <pre>
+    <section>
+      <h3 id="conditions">Conditions</h3>
+      <pre>
       if (warunek) {
           Tu operacje;
       } else if (warunek_2) {
@@ -256,12 +257,13 @@
           case 6:
               day = "Saturday";
       }
-    </pre>
-  </section>
+    </pre
+      >
+    </section>
 
-  <section>
-    <h3 id="loops">Loops</h3>
-    <pre>
+    <section>
+      <h3 id="loops">Loops</h3>
+      <pre>
       for(inicjalizacja; warunek; inkrementacja){
           operacje;
       }
@@ -323,12 +325,13 @@
       for(let key in user){
         console.log(user[key]);     // John, Smith, 30
       }
-    </pre>
-  </section>
+    </pre
+      >
+    </section>
 
-  <section>
-    <h3 id="arrays">Arrays</h3>
-    <pre>
+    <section>
+      <h3 id="arrays">Arrays</h3>
+      <pre>
       const newArray = []     // tworzenie tablicy
 
       <span>.length;</span>       // zwraca długość tablicy
@@ -422,11 +425,11 @@
 
       firstName       // Jan
     </pre>
-  </section>
+    </section>
 
-  <section>
-    <h3 id="function">Function</h3>
-    <pre>
+    <section>
+      <h3 id="function">Function</h3>
+      <pre>
       Wyrażenie funkcyjne (Function Expression):
 
       const fName = function() {
@@ -494,12 +497,13 @@
       (function(parametr){
         // somecode...
       })('parametr');
-    </pre>
-  </section>
+    </pre
+      >
+    </section>
 
-  <section>
-    <h3 id="date">Date</h3>
-    <pre>
+    <section>
+      <h3 id="date">Date</h3>
+      <pre>
       const today = new Date();
 
       today.getFullYear();
@@ -510,12 +514,13 @@
       today.getMinutes();
       today.getSeconds();
       today.getTime();  // czas w sekundach od 01.01.1970
-    </pre>
-  </section>
+    </pre
+      >
+    </section>
 
-  <section>
-    <h3 id="math">Math</h3>
-    <pre>
+    <section>
+      <h3 id="math">Math</h3>
+      <pre>
       Math.PI
       Math.E
 
@@ -543,12 +548,13 @@
           const number = Math.floor(Math.random() * (max - min + 1) + min);
           return number;
       }
-    </pre>
-  </section>
+    </pre
+      >
+    </section>
 
-  <section>
-    <h3 id="dom">Document Object Model</h3>
-    <pre>
+    <section>
+      <h3 id="dom">Document Object Model</h3>
+      <pre>
       Pobieranie elementu:
 
       document.querySelector('selector');
@@ -580,6 +586,8 @@
       <span>.createElement('');</span>     // tworzenie
       <span>.createTextNode('');</span>    // tworzenie tekstu w elemencie
       <span>.appendChild();</span>         // dodawanie
+      <span>.insertBefore();</span>        // dodawanie elementu przed innym elementem
+        elementRodzica.insertBefore(nowyElement, innyElement);
 
       ---------------------------------------
       Zdarzenia:
@@ -622,11 +630,16 @@
       Other:
       - <span>submit</span>        // zatwierdzanie np. formularza
       - <span>input</span>         // cokolwiek robimy w input
-      - <span>focus</span>         // kiedy klikamy w wewnątrz inputa
-      - <span>blur</span>          // kiedy klikamy po zewnątrz inputa
+      - <span>focus</span>         // np. kiedy klikamy w wewnątrz inputa
+      - <span>blur</span>          // np. kiedy klikamy po zewnątrz inputa
       - <span>cut</span>           // kiedy zaznaczamy tekst i go wycinamy
       - <span>paste</span>         // kiedy wklejamy tekst
       - <span>change</span>        // kiedy zmieniamy wybór np. w select
+      - <span>resize</span>        // zmiana rozmiaru okna przeglądarki
+      - <span>scroll</span>        // zdarzenie scrolowania strony lub elementu
+      - <span>animationstart</span>
+      - <span>animationiteration</span>
+      - <span>animationend</span>
 
       ---------------------------------------
       Inne:
@@ -662,15 +675,26 @@
       <span>.firstElementChild</span> - dostęp do pierwszego elementu
       <span>.childElementCount</span> - ilość elementów
       <span>.parentNode / .parentElement</span> - dostęp do rodzica
+      <span>.firstChild</span>
+      <span>.nextSibiling</span>
+      
+      ---------------------------------------
+      Local Storage:
 
+      localStorage.setItem('key', 'value');   // zapisanie
+      localStorage.removeItem('key');         // usunięcie
+      localStorage.getItem('key');            // pobranie
+      localStorage.clear();                   // czyszczenie
+      JSON.parse()                            // konwertuje string na js object
+      JSON.stringfy()                         // konweruje na string
 
 
     </pre>
-  </section>
+    </section>
 
-  <section>
-    <h3 id="objects">Objects</h3>
-    <pre>
+    <section>
+      <h3 id="objects">Objects</h3>
+      <pre>
       Literał obiektu:
       <span>const objectsName = {};</span>
 
@@ -706,7 +730,7 @@
       ---------------------------------------
       Tworzenie konstruktora:
       <span>
-      const Name = function(name_1, name_2){
+      function FirstName(name_1, name_2){
           this.name_1 = name_1;
           this.name_2 = name_2;
           this.name_3 = function() {
@@ -716,29 +740,42 @@
       </span>
       Tworzenie instancji:
       <span>
-      const nazwa = new Name("one", "two");
+      const nazwa = new FirstName("one", "two");
       </span>
       Prototyp - aby uniknąć tworzenia metody do każdej instancji,
-                  można użyć prototypu - 'wyciągnąć' metodę z konstruktora.
+                 można użyć prototypu - 'wyciągnąć' metodę z konstruktora:
       <span>
-      Name.prototype.name_3 = function(name_4){
+      FirstName.prototype.name_3 = function(name_4){
           this.name_4 = name_4;
           ...
       }
       </span>
+      Dziedziczenie:
+      <span>
+      function SecondName(name_1, name_2, someOther, anotherParametr){
+        FirstName.call(this, name_1, name_2);
+        this.someOther = someOther;
+        this.anotherParametr = anotherParametr;
+      }
+      </span>
+      Dziedziczenie prototypu:
+      <span>
+        SecondName.prototype = Object.create(FirstName.prototype);
+        SecondName.prototype.constructor = SecondName;
+      </span>
     </pre>
-  </section>
+    </section>
 
-  <section>
-    <h3 id="class">Class</h3>
-    <pre>
-      // deklaracja:
+    <section>
+      <h3 id="class">Class</h3>
+      <pre>
+      Deklaracja:
       <span>class Species {}</span>
 
-      // tworzenie instancji klasy:
+      Tworzenie instancji klasy:
       <span>const human = new Species();</span>
 
-      class className {
+      class ClassName {
           constructor(arg1, arg2, arg3){
               this.arg1 = arg1;
               this.arg2 = arg2;
@@ -756,25 +793,25 @@
           }
       }
 
-      // wywołanie metody statycznej:
+      Wywołanie metody statycznej:
 
-      className.anotherName(...);
+      ClassName.anotherName(...);
       Tak jak wywołujemy np. Math.floor() itp.
 
-      // dziedziczenie
+      Dziedziczenie:
 
-      class nameClass_1 <span>extends</span> nameClass_2 {
+      class ClassName_1 <span>extends</span> ClassName_2 {
           constructor(first, second) {
               <span>super(first);</span> // wywołuje konstruktor 'rodzica', klasy z której dziedziczymy, klasy nadrzędnej
               this.second = second; // rozszerzone, własne konstruktory
           }
       }
     </pre>
-  </section>
+    </section>
 
-  <section>
-    <h3 id="iterator">Iterators:</h3>
-    <pre>
+    <section>
+      <h3 id="iterator">Iterators:</h3>
+      <pre>
       Możemy iterować petlą <span>for - of</span> po każdym obiekcie z symbol.iterator
 
       1. Iteracja po tablicy:
@@ -798,11 +835,11 @@
       }
       </span>
     </pre>
-  </section>
+    </section>
 
-  <section>
-    <h3 id="generators">Generators:</h3>
-    <pre>
+    <section>
+      <h3 id="generators">Generators:</h3>
+      <pre>
       Tworzymy generator z <span>*</span>(gwiazdką) w nazwie:
       
       function *name() {
@@ -832,12 +869,13 @@
         console.log(value);   // 5,6,7,8,9,10
       }
 
-    </pre>
-  </section>
+    </pre
+      >
+    </section>
 
-  <section>
-    <h3 id="other">Others:</h3>
-    <pre>
+    <section>
+      <h3 id="other">Others:</h3>
+      <pre>
       <span>typeof variableName</span> - wskazuje na typ danych
       <span>console.table({a:1, b:2})</span> - wyświetla obiekt w tabeli
       <span>console.error('This is error')</span> - wyświetla error w consoli
@@ -845,42 +883,41 @@
       <span>console.time('Start')</span> - początek zliczania czasu
       <span>console.timeEnd('Stop')</span> - koniec zliczania czasu
     </pre>
-  </section>
+    </section>
 
-  <section>
-    <h3>Słowniczek:</h3>
-    <ul>
-      <li>
-        <span>Hoisting</span> - przeniesienie części deklaracji na początek
-        zakresu. Zmienne const i let nie podlegają hoistingowi.
-      </li>
-      <li>
-        <span>Closure (domnkięcie)</span> - mechanizm, który pomaga nam
-        uzyskać dostęp do danej wartości poza funkcją i gdy ta funkcja nie
-        jest już aktywna. W funkcji zwracamy inną funkcję która ma referencję
-        do zmiennych funkcji pierwotnej.
-      </li>
-      <li>
-        <span>Encapsulation (Hermetyzacja)</span> - grupowanie (zamykanie)
-        metod i właściwości w obiekcie. Popularnym rozwiązaniem jest używanie
-        metod pobierających (getter) i dostępowych (setter) do danych w
-        obiekcie. Implementacja staje się ukryta a dostęp do danych w jednym
-        obiekcie jest udostępniany innemu obiektowi za pomoca interfejsu.
-      </li>
-      <li>
-        <span>Polimorfizm</span> - obiekt zachowuję się inaczej w zależności
-        od dostarczanych danych. Polimorficzny w podstawowym znaczeniu to
-        różne postacie tej samej rzeczy, zmiana kształtu.
-      </li>
-      <li>
-        <span>Prototyp</span> - to obiekt w funkcji konstruktora,
-        współdzielony przez wszystkie egzemplarze. Każdy egzemplarz ma dostęp
-        do obiektu prototypu.
-      </li>
-    </ul>
-  </section>
+    <section>
+      <h3>Słowniczek:</h3>
+      <ul>
+        <li>
+          <span>Hoisting</span> - przeniesienie części deklaracji na początek
+          zakresu. Zmienne const i let nie podlegają hoistingowi.
+        </li>
+        <li>
+          <span>Closure (domnkięcie)</span> - mechanizm, który pomaga nam
+          uzyskać dostęp do danej wartości poza funkcją i gdy ta funkcja nie
+          jest już aktywna. W funkcji zwracamy inną funkcję która ma referencję
+          do zmiennych funkcji pierwotnej.
+        </li>
+        <li>
+          <span>Encapsulation (Hermetyzacja)</span> - grupowanie (zamykanie)
+          metod i właściwości w obiekcie. Popularnym rozwiązaniem jest używanie
+          metod pobierających (getter) i dostępowych (setter) do danych w
+          obiekcie. Implementacja staje się ukryta a dostęp do danych w jednym
+          obiekcie jest udostępniany innemu obiektowi za pomoca interfejsu.
+        </li>
+        <li>
+          <span>Polimorfizm</span> - obiekt zachowuję się inaczej w zależności
+          od dostarczanych danych. Polimorficzny w podstawowym znaczeniu to
+          różne postacie tej samej rzeczy, zmiana kształtu.
+        </li>
+        <li>
+          <span>Prototyp</span> - to obiekt w funkcji konstruktora,
+          współdzielony przez wszystkie egzemplarze. Każdy egzemplarz ma dostęp
+          do obiektu prototypu.
+        </li>
+      </ul>
+    </section>
 
-  <!-- <script src="example.js"></script> -->
-</body>
-
+    <!-- <script src="example.js"></script> -->
+  </body>
 </html>
