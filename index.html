@@ -85,6 +85,7 @@
     <li><a href="#iterator">Iterators</a></li>
     <li><a href="#generators">Generators</a></li>
     <li><a href="#asynchronous">Asynchronous JS</a></li>
+    <li><a href="#modules">Modules</a></li>
     <li><a href="#other">Others</a></li>
   </ul>
 
@@ -923,6 +924,50 @@
           .then(res => console.log(res));        
 
       </pre>
+  </section>
+
+  <section>
+    <h3 id="modules">Modules</h3>
+    <pre>
+      <span>export zmienna = przypisana_wartość</span>
+      <span>import { zmienne } from './path'</span>
+      - importowane nazwy zmiennych muszą być takie same jak w pliku z eksportu
+      - można eksportować wiele zmiennych jednocześnie
+      - w import koniecznie trzeba użyć nawiasów {}
+      - w import w ścieżce należy podać rozszerzenie pliku '.js'
+
+        // script.js
+        export const first = [1, 2];
+        export const second = (a, b) => a + b;
+
+        // main.js
+        import { first, second } from './script.js'
+
+      <span>export default</span> - eksport domyślny np. funckji anonimowej
+      <span>import dowolna_nazwa from './path'</span> - dodajemy dowolną nazwę bez {}
+      - tylko jeden element może być eksportowany domyślnie z modułu
+      - można eksportować jeden element domyślnie a reszte poprzez normalny export
+      - nazwa w import z exportu domyślnego może być jaką chcemy
+      - w import nie musimy używać {} przy eksporcie domyślnym
+
+        // script.js
+        export default (add) => { a + b };
+
+        // main.js
+        import naszaNazwa from './script.js'
+
+      Import eksportu domyślnego i eksportu zwykłego jednocześnie:
+      <span>import naszaNazwa, { first, second } from './path'</span>
+
+      Import wszystkich eksportowanych elementów jako obiekt:
+      <span>import * as nazwa from './path'</span>
+
+      Zmiana nazwy podczas importu:
+      <span>import { nazwa_oryginalna as nowa_nazwa } from './path'</span>
+
+      W przeglądarce musimy dodać type="module" do script:
+      <span>&ltscript src="main.js" type="module">&lt/script> </span>
+    </pre>
   </section>
 
   <section>
