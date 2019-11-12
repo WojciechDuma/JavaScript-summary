@@ -873,53 +873,94 @@
   <section>
     <h3 id="asynchronous">Asynchronous JS</h3>
     <pre>
-        HTTP status:
+        <span>HTTP status:</span>
         200: 'OK'
         403: 'Forbidden'
         404: 'Not Found'
 
-        readyState Values:
+        <span>readyState Values:</span>
         0: request not initialized;
         1: server connection established
         2: request received
         3: processing request
         4: request finished and response is ready
 
-        AJAX:
-        - const xhr = new XMLHttpRequest();
+        <span>AJAX:</span>
+        // Tworzenie XHR Object:
+        - const xhr = new XMLHttpRequest(); 
+
+        // Otwieranie:
         - xhr.open('GET', 'name', true);
-        - xhr.onprogress;
-        - xhr.onload;
-        - xhr.onreadystatechange;
+
+        // readyState === 3, używany np. w przypadku wyświetlania loadera w oczekiwaniu na dane:
+        - xhr.onprogress; 
+
+        // Uzyskanie odpowiedzi z serwera, nowsze użycie:
+        - xhr.onload = function() {
+            if(this.status === 200){
+              const text = JSON.parse(this.responseText);
+            }
+          };
+
+        // Starsze użycie:
+        - xhr.onreadystatechange = function() {
+            if(this.status === 200 && this.readyState === 4){
+              const text = JSON.parse(this.responseText);
+            }
+          };
+        
+        // Błędy:
         - xhr.onerror;
+        
+        // Wysyłanie: 
         - xhr.send();
 
-        Promises:
-        const promise = new Promise(function(resolve, reject){
+        ################################
 
+        <span>Promises:</span>
+        Trzy stany Promise:
+        1. Pending - oczekujący
+        2. Resolved - rozwiązany
+        3. Reject - odrzucony
+
+        const promise = new Promise(function(resolve, reject){
+            if(!error){
+              resolve();
+            } else {
+              reject('Error: coś poszło nie tak');
+            }
         });
 
-        Fetch:
+        .then() // zwraca odpowiedź z Promise
+        .catch() // obsługa błędu
+        .finally() // wykona się zawsze na końcu
+        .all() // zwraca obiekt Promise z tablicą wartości zwróconych ze wszystkich spełnionych obietnic
+        
+        ################################
+
+        <span>Fetch:</span> - fetch zwraca Promise
+        Fetch API: json() - z body wyodrębnia json
 
         fetch("url")
             .then(response => response.json())
             .then(data => /* wyświetl dane w DOM */)
             .catch(error => /* wyświetl błąd */)
 
-        Async / Await:
+        ################################
 
-        - po dodaniu słówka "async" funckja zwróci nam Promise,
-        - po dodaniu słówka "await" funckja czeka aż wykona się Promise.
+        <span>Async / Await:</span>
+        - po dodaniu słówka "async" funkcja zwróci nam Promise,
+        - po dodaniu słówka "await" funkcja czeka aż wykona się Promise.
 
         async function myFunction() {
           const promise = new Promise(function(resolve, reject){
             setTimeout(()=> resolve('Hello'), 1000);
-
-            const res = await promise;
-            return res;
           });
 
+          const res = await promise;
+          return res;
         }
+
         myFunction()
           .then(res => console.log(res));        
 
