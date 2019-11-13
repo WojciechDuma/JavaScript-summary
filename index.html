@@ -80,6 +80,7 @@
     <li><a href="#date">Date</a></li>
     <li><a href="#math">Math</a></li>
     <li><a href="#dom">Document Object Model</a></li>
+    <li><a href="#tryCatch">Try...catch</a></li>
     <li><a href="#objects">Objects</a></li>
     <li><a href="#class">Class</a></li>
     <li><a href="#iterator">Iterators</a></li>
@@ -688,6 +689,26 @@
       localStorage.clear();                   // czyszczenie
       JSON.stringfy()                         // zamiana obiektu JavaScript na JSON (string)
       JSON.parse()                            // zamiana JSON (stringa) na obiekt JavaScript
+    </pre>
+  </section>
+
+  <section>
+    <h3 id="tryCatch">Try...catch</h3>
+    <pre>
+      <span>try {</span>
+        // Some program
+
+        if(something.is.bad){
+          <span>throw</span> 'Something is wrong';
+        }
+      <span>} catch(error) {</span>
+        // if there are some errors:
+        error
+        error.message 
+        error.name
+      <span>} finally {</span>
+        // run regardless of result
+      <span>}</span>
     </pre>
   </section>
 
