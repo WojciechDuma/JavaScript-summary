@@ -81,6 +81,7 @@
     <li><a href="#math">Math</a></li>
     <li><a href="#dom">Document Object Model</a></li>
     <li><a href="#tryCatch">Try...catch</a></li>
+    <li><a href="#regexp">Try...catch</a></li>
     <li><a href="#objects">Objects</a></li>
     <li><a href="#class">Class</a></li>
     <li><a href="#iterator">Iterators</a></li>
@@ -709,6 +710,47 @@
       <span>} finally {</span>
         // run regardless of result
       <span>}</span>
+    </pre>
+  </section>
+
+  <section>
+    <h3 id="regexp">Regular expression</h3>
+    <pre>
+      /regularExpression/ - pomiędzy / / 
+      .exec() - zwraca wynik w tablicy albo null
+      .test() - zwraca true albo false
+      .match() - zwraa tablicę albo null
+      .search() - zwraca index pierwszego napotkania albo -1 
+
+      i - case insenitive
+      g - global search
+      /^x/ - musi zaczynać się od x
+      /^x/i - musi zaczynać się od x lub X
+      /x$/ - musi kończyć się na x
+      /x$/i - musi kończyć się na x lub X
+      . - zastępuje każdy jeden symbol
+      * - zastępuje każdą ilość symboli
+      /x?/ - x może być ale nie musi, optional character
+      /[xyz]/ - [] - musi być albo x albo y albo z
+      /[^xyz]/ - może być cokolwiek aby nie to co w nawiasie
+      [A-Z] - każda duża litera, any uppercase letter 
+      [a-z] - any lowercase letter
+      [A-Za-z] - any letter
+      [0-9] - any number
+      /x{2}/ - musi być dwa x
+      /x{2,4}/ - musi być od dwóch do 4 x
+      /x{2,}/ - musi być minimum 2 x
+      () - grupowanie 
+      \w - word character or number or _  
+      \w+ - one or more: word character or number or _  
+      \W - wszystko oprócz a-z 0-9 i _
+      \d - any digit
+      \D - non digit
+      \s - match whitespace
+      \S - without whitespace
+      \b - word boundary
+      / x(?=y)/ - znajdź x tylko jeżeli jest po y
+      / x(?!y)/ - znajdź x tylko jeżeli nie jest po y
     </pre>
   </section>
 
