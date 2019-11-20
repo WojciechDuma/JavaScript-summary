@@ -81,7 +81,7 @@
     <li><a href="#math">Math</a></li>
     <li><a href="#dom">Document Object Model</a></li>
     <li><a href="#tryCatch">Try...catch</a></li>
-    <li><a href="#regexp">Try...catch</a></li>
+    <li><a href="#regexp">Regular expression</a></li>
     <li><a href="#objects">Objects</a></li>
     <li><a href="#class">Class</a></li>
     <li><a href="#iterator">Iterators</a></li>
@@ -716,27 +716,37 @@
   <section>
     <h3 id="regexp">Regular expression</h3>
     <pre>
-      /regularExpression/ - pomiędzy / / 
-      .exec() - zwraca wynik w tablicy albo null
-      .test() - zwraca true albo false
-      .match() - zwraa tablicę albo null
-      .search() - zwraca index pierwszego napotkania albo -1 
+      <span>/</span> regularExpression <span>/</span>
 
-      i - case insenitive
-      g - global search
-      /^x/ - musi zaczynać się od x
-      /^x/i - musi zaczynać się od x lub X
-      /x$/ - musi kończyć się na x
-      /x$/i - musi kończyć się na x lub X
-      . - zastępuje każdy jeden symbol
-      * - zastępuje każdą ilość symboli
+      .exec() - zwraca wynik w tablicy albo null
+
+      <span>.test()</span> - zwraca true albo false: 
+      <span>myRegex.test(myString);</span>
+      np: /Hello World/.test("Hello");  // true
+
+      <span>.match()</span> - zwraca tablicę z wyrażeniem albo null:
+      <span>myString.match(myRegex)</span>;
+      np: "Hello, World!".match(/Hello/); // ["Hello"]
+
+      .search() - zwraca index pierwszego napotkania albo -1
+
+      <span>|</span> - opeartor OR, np. /yes|no|maybe/ - przeszukuje string, na podstawie tych 3 słów
+      <span>/i</span> - case insenitive, np. /IgnoreCase/i - odnajdzie ignorecase oraz IgnoreCase
+      <span>/g</span> - global search, find more than the first match
+      <span>.</span> - zastępuje każdy jeden symbol, np. /hu./ - odnajdzie: hut, hug, hum...
+      <span>*</span> - zastępuje zero lub więcej symboli
+      <span>+</span> - zastępuje jeden lub więcej symboli
+      <span>/[xyz]/</span> - <span>[ ]</span> - it must be: x or y or z
+      <span>/[^xyz]/</span> - <span>[^ ]</span> - everything except for symbols in brackets
+      <span>[A-Z]</span> - any uppercase letter
+      <span>[a-z]</span> - any lowercase letter
+      <span>[A-Za-z]</span> or <span>/[a-z]/ig</span> - any letter
+      <span>[0-9]</span> - any number
+      <span>/^x/</span> - musi zaczynać się od x
+      <span>/^x/i</span> - musi zaczynać się od x lub X
+      <span>/x$/</span> - musi kończyć się na x
+      <span>/x$/i</span> - musi kończyć się na x lub X
       /x?/ - x może być ale nie musi, optional character
-      /[xyz]/ - [] - musi być albo x albo y albo z
-      /[^xyz]/ - może być cokolwiek aby nie to co w nawiasie
-      [A-Z] - każda duża litera, any uppercase letter 
-      [a-z] - any lowercase letter
-      [A-Za-z] - any letter
-      [0-9] - any number
       /x{2}/ - musi być dwa x
       /x{2,4}/ - musi być od dwóch do 4 x
       /x{2,}/ - musi być minimum 2 x
@@ -773,8 +783,11 @@
       </span>
       Dodawanie dynamiczne do obiektu:
       <span>someName.key_3 = value_3;</span>
+      <span>someName[key_3] = value_3;</span>
       Usuwanie:
       <span>delete someName.key_3;</span>
+      Sprawdzanie czy ma taką właściwość (key):
+      <span>.hasOwnProperty('keyName')</span>
 
       ---------------------------------------
       This odwołuje się do obiektu na którym wykonywana jest metoda:
@@ -825,6 +838,9 @@
         SecondName.prototype = Object.create(FirstName.prototype);
         SecondName.prototype.constructor = SecondName;
       </span>
+
+      Inne:
+      <span>Object.freeze()</span> - uniemożliwa dodanie, usunięcie i zmianę nowych właściwości do obiektu.
     </pre>
   </section>
 
