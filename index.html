@@ -718,8 +718,6 @@
     <pre>
       <span>/</span> regularExpression <span>/</span>
 
-      .exec() - zwraca wynik w tablicy albo null
-
       <span>.test()</span> - zwraca true albo false: 
       <span>myRegex.test(myString);</span>
       np: /Hello World/.test("Hello");  // true
@@ -728,7 +726,8 @@
       <span>myString.match(myRegex)</span>;
       np: "Hello, World!".match(/Hello/); // ["Hello"]
 
-      .search() - zwraca index pierwszego napotkania albo -1
+      <span>.exec()</span> - zwraca wynik w tablicy albo null
+      <span>.search()</span> - zwraca index pierwszego napotkania albo -1
 
       <span>|</span> - opeartor OR, np. /yes|no|maybe/ - przeszukuje string, na podstawie tych 3 słów
       <span>/i</span> - case insenitive, np. /IgnoreCase/i - odnajdzie ignorecase oraz IgnoreCase
@@ -736,31 +735,31 @@
       <span>.</span> - zastępuje każdy jeden symbol, np. /hu./ - odnajdzie: hut, hug, hum...
       <span>*</span> - zastępuje zero lub więcej symboli
       <span>+</span> - zastępuje jeden lub więcej symboli
-      <span>/[xyz]/</span> - <span>[ ]</span> - it must be: x or y or z
+      <span>()</span> - grupowanie 
+      <span>/[xyz]/</span> - <span>[ ]</span> - it must be: 'x' or 'y' or 'z'
       <span>/[^xyz]/</span> - <span>[^ ]</span> - everything except for symbols in brackets
       <span>[A-Z]</span> - any uppercase letter
       <span>[a-z]</span> - any lowercase letter
       <span>[A-Za-z]</span> or <span>/[a-z]/ig</span> - any letter
       <span>[0-9]</span> - any number
-      <span>/^x/</span> - musi zaczynać się od x
-      <span>/^x/i</span> - musi zaczynać się od x lub X
-      <span>/x$/</span> - musi kończyć się na x
-      <span>/x$/i</span> - musi kończyć się na x lub X
-      /x?/ - x może być ale nie musi, optional character
-      /x{2}/ - musi być dwa x
-      /x{2,4}/ - musi być od dwóch do 4 x
-      /x{2,}/ - musi być minimum 2 x
-      () - grupowanie 
-      \w - word character or number or _  
-      \w+ - one or more: word character or number or _  
-      \W - wszystko oprócz a-z 0-9 i _
-      \d - any digit
-      \D - non digit
-      \s - match whitespace
-      \S - without whitespace
-      \b - word boundary
-      / x(?=y)/ - znajdź x tylko jeżeli jest po y
-      / x(?!y)/ - znajdź x tylko jeżeli nie jest po y
+      <span>/^x/</span> - musi zaczynać się od 'x'
+      <span>/^x/i</span> - musi zaczynać się od 'x' lub 'X'
+      <span>/x$/</span> - musi kończyć się na 'x'
+      <span>/x$/i</span> - musi kończyć się na 'x' lub 'X'
+      <span>/x?/</span> - 'x' może być ale nie musi, ? optional character
+      <span>/x{2}/ </span>- musi być dwa 'x'
+      <span>/x{2,4}/</span> - musi być od dwóch do 4 'x'
+      <span>/x{2,}/</span> - musi być minimum 2 'x' lub więcej
+      <span>\w</span> - word character or number or '_', zastępuje [A-Za-z0-9_]  
+      <span>\w+</span> - one or more: word character or number or '_'
+      <span>\W</span> - wszystko oprócz a-z 0-9 '_', zastępuje [^A-Za-z0-9_] 
+      <span>\d</span> - any digit, zastepuje [0-9]
+      <span>\D</span> - non digit, zastepuje [^0-9]
+      <span>\s</span> - match whitespace
+      <span>\S</span> - everything without whitespace
+      <span>\b</span> - word boundary
+      <span>/ x(?=y) /</span> - znajdź x tylko jeżeli jest po y
+      <span>/ x(?!y) /</span> - znajdź x tylko jeżeli nie jest po y
     </pre>
   </section>
 
