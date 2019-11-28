@@ -346,22 +346,26 @@
           newArray = firstArray.concat(secondArray);
           ES6: newArray = [...firstArray, ...secondArray];
 
-      <span>.slice();</span>
-      newArray.slice(2);      // wycinamy od 2 indexu
-      newArray.slice(2,5);    // wycinamy od 2 indeksu do 5 indexu (ale bez niego)
-      newArray.slice(0);      // pobieramy całą tablice
-      newArray.slice(-1);     // zwraca ostatni element
-      newArray.slice(-3);     // zwraca 3 ostatnie elementy
+      <span>.slice(indexStart, indexEnd);</span>
+      - kopiowanie elementów od indexStart (włącznie) do indexEnd (ale już bez niego)
+      - zwraca nową tablicę ze skopiowanymi elementami
+      - newArray.slice(2);      // wycinamy od 2 indexu
+      - newArray.slice(2,5);    // wycinamy od 2 indeksu do 5 indexu (ale bez niego)
+      - newArray.slice(0);      // pobieramy całą tablice
+      - newArray.slice(-1);     // zwraca ostatni element
+      - newArray.slice(-3);     // zwraca 3 ostatnie elementy
 
-      <span>.splice();</span>
-      newArray.splice(2);     // usuwa wszystkie elementy od indexu 2
-      newArray.splice(0,1);   // usuwa od indexu 0, jeden element
-      newArray.splice(0);     // zeruje całą tablice
-      newArray.splice(0,1, "somethink");   // usuwa element i od razu dodaje
+      <span>.splice(index, numberOfElementToDelete, elementsToAdd);</span>
+      - usuwanie elementów rozpoczyna się włącznie z elementem od którego rozpoczynamy,
+      - .splice - zwraca nową tablicę z usuniętymi elementami.
+      - newArray.splice(2);     // usuwa wszystkie elementy od indexu 2
+      - newArray.splice(0,1);   // usuwa od indexu 0, jeden element
+      - newArray.splice(0);     // zeruje całą tablice
+      - newArray.splice(0,1, "somethink");   // usuwa element i od razu dodaje
 
       <span>.sort();</span>        // sortowanie alfabetyczne
-      <span>.indefOf();</span>     // szuka elementu w tablicy i zwraca jego index
-      <span>.lastIndexOf();</span> // szuka od końca
+      <span>.indefOf();</span>     // zwraca index pierwszego wystąpienia w tablicy lub -1
+      <span>.lastIndexOf();</span> // zwraca index pierwszego wystąpienia w tablicy od końca lub -1
       <span>.includes();</span>    // sprawdza tablice czy zawiera element, zwraca true, false
       <span>.join();</span>        // otrzymujemy stringa oddzielonego przecinkami
       <span>.join(" --- ");</span> // otrzymujemy stringa oddzielonego ---
@@ -783,10 +787,13 @@
       Dodawanie dynamiczne do obiektu:
       <span>someName.key_3 = value_3;</span>
       <span>someName[key_3] = value_3;</span>
+
       Usuwanie:
       <span>delete someName.key_3;</span>
+
       Sprawdzanie czy ma taką właściwość (key):
-      <span>.hasOwnProperty('keyName')</span>
+      1. <span>someName.hasOwnProperty('keyName');</span>
+      2. 'keyName' <span>in</span> someName;
 
       ---------------------------------------
       This odwołuje się do obiektu na którym wykonywana jest metoda:
@@ -840,6 +847,7 @@
 
       Inne:
       <span>Object.freeze()</span> - uniemożliwa dodanie, usunięcie i zmianę nowych właściwości do obiektu.
+      <span>Object.keys(objectName)</span> - zwraca tablicę z wszystkimi keysami z obiektu
     </pre>
   </section>
 
