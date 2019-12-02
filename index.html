@@ -171,7 +171,7 @@
       name.toLowerCase();     // wojciech
       name.length;            // 8
       name[2];                // j
-      name.charArt(2);        // j
+      name.charAt(2);        // j
       name.indexOf('o')       // 1
       name.includes('c')      // true
       name.slice(1,4)         // ojc
@@ -370,7 +370,7 @@
       <span>.join();</span>        // otrzymujemy stringa oddzielonego przecinkami
       <span>.join(" --- ");</span> // otrzymujemy stringa oddzielonego ---
       <span>.reverse();</span>     // odwraca kolejność tablicy
-      <span>.split("");</span>     // zamienia string na tablice, "someString".split(""); 
+      <span>.split(separator);</span>     // zamienia string na tablice, "someString".split(""); 
       <span>.find();</span>        // zwraca element, który jako pierwszy zwróci true
 
       <span>
@@ -389,14 +389,17 @@
 
       ################################
 
-      <span>.map();</span>         // map tworzy nowa tablica o tej samej długości
+      <span>.map();</span>         
+      // map tworzy nowa tablica o tej samej długości, zawierającą wyniki z wywołania funkcji
+      dla każdego z elementów tablicy.
+
       const = numbers = [2, 3, 4];
       const doubleNumbers = numbers.map(number => number * 2); // [4, 6, 8];
 
       ################################
 
       <span>.filter();</span>      // zwraca nową tablice złożoną z tych elementów,
-                          przy których iterator zwrócił true.
+                                   przy których iterator zwrócił true.
       
       const users = ['adam', 'janek', 'bolek', 'leon'];
       const nameSixLetter = users.filter(user => user.length === 5);
@@ -540,6 +543,9 @@
       Math.sqrt(64);    // 8, pierwiastek
       Math.abs(-4);     // 4, wartość bezwględna
       Math.pow(8, 2);   // 64, potęga
+
+      Math.max(value1, value2...);    // Zwraca największą liczbę z podanych
+      Math.min(value1, value2...);    // Zwraca najmniejszą liczbę z podanych
 
       Math.random();    // random between 0-1
 
