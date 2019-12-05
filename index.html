@@ -357,20 +357,23 @@
 
       <span>.splice(index, numberOfElementToDelete, elementsToAdd);</span>
       - usuwanie elementów rozpoczyna się włącznie z elementem od którego rozpoczynamy,
-      - .splice - zwraca nową tablicę z usuniętymi elementami.
+      - zwraca nową tablicę z usuniętymi elementami,
+      - modyfikuje oryginalną tablice
       - newArray.splice(2);     // usuwa wszystkie elementy od indexu 2
       - newArray.splice(0,1);   // usuwa od indexu 0, jeden element
       - newArray.splice(0);     // zeruje całą tablice
       - newArray.splice(0,1, "somethink");   // usuwa element i od razu dodaje
 
-      <span>.sort();</span>        // sortowanie alfabetyczne
+      <span>.split(separator);</span>     // zamienia string na tablice, "someString".split("");
+      string.split(" ") - zamienia string na tablice słów z pominięciem wszystkich spacji 
+      string.split(/\W/) - zamienia string na tablice słów z pominięciem wszystkich separatorów
+
+      <span>.reverse();</span>     // odwraca kolejność tablicy
+      <span>.join();</span>        // otrzymujemy stringa oddzielonego przecinkami
+      <span>.join(" --- ");</span> // otrzymujemy stringa oddzielonego ---
       <span>.indefOf();</span>     // zwraca index pierwszego wystąpienia w tablicy lub -1
       <span>.lastIndexOf();</span> // zwraca index pierwszego wystąpienia w tablicy od końca lub -1
       <span>.includes();</span>    // sprawdza tablice czy zawiera element, zwraca true, false
-      <span>.join();</span>        // otrzymujemy stringa oddzielonego przecinkami
-      <span>.join(" --- ");</span> // otrzymujemy stringa oddzielonego ---
-      <span>.reverse();</span>     // odwraca kolejność tablicy
-      <span>.split(separator);</span>     // zamienia string na tablice, "someString".split(""); 
       <span>.find();</span>        // zwraca element, który jako pierwszy zwróci true
 
       <span>
@@ -386,6 +389,27 @@
       <span>Array.isArray(nazwa)</span> - sprawdza czy podana wartość jest tablicą
       <span>Array.from()</span> - pozwala tworzyć tablice z elementów tablicopodobnych
         np: let newArr = Array.from('WOJCIECH');
+
+      ################################
+
+      <span>.every()</span> 
+      -sprawdza czy wszystkie elementy w tablicy przechodzą test w postaci dostarczonej funkcji,
+      - zwraca true albo false
+      - nie modyfikuje tablicy na której jest wywołana
+
+      ################################
+
+      <span>.reduce()</span>
+      reduce sprowadza całą tablice do jednej wartości
+      .reduce((accumulator, currentValue, index, array) => { }, initialValue);
+        accumulator - wartość zwracana w ostatnim wywołaniu
+        currentValue - obecnie przetwarzany element
+        index - opcjonalnie, index przetwarzanego elementu
+        array - opcjonalnie, tablica na której wykonywane jest reduce
+        initialValue - opcjonalnie, argument pierwszego wywołania (przypisany do accumulator)
+
+       numbers = [0, 1, 2, 3, 4, 5];
+       let total = numbers.reduce((sum, number) => sum + number); // 15 
 
       ################################
 
@@ -825,10 +849,14 @@
           }
       }    
       </span>
+      - konstruktor tworzymy z dużej litery ("FirstName") - aby odróżnić go od innych funkcji
+      - w konstruktorze używamy słow kluczowego "this" do ustawienia właściwości obiektu który będziemy tworzyć
+      - 'this' w konstruktorze odnosi się do nowego obiektu który będzie stworzony
+      - konstruktor nie zwraca wartości jak inne funkcje a jedynie definiuje właściwości i zachowanie.
+
       Tworzenie instancji:
-      <span>
-      const nazwa = new FirstName("one", "two");
-      </span>
+      <span>const nazwa = new FirstName("one", "two");</span>
+
       Prototyp - aby uniknąć tworzenia metody do każdej instancji,
                  można użyć prototypu - 'wyciągnąć' metodę z konstruktora:
       <span>
@@ -837,6 +865,7 @@
           ...
       }
       </span>
+
       Dziedziczenie:
       <span>
       function SecondName(name_1, name_2, someOther, anotherParametr){
@@ -847,13 +876,17 @@
       </span>
       Dziedziczenie prototypu:
       <span>
-        SecondName.prototype = Object.create(FirstName.prototype);
-        SecondName.prototype.constructor = SecondName;
+      SecondName.prototype = Object.create(FirstName.prototype);
+      SecondName.prototype.constructor = SecondName;
       </span>
 
       Inne:
+      <span>instanceof</span> - porównuje utworzony obiekt z konstuktorem, zwracając
+      true albo false w zelżności czy obiekt był utworzony za pomocą konstruktora czy nie.
       <span>Object.freeze()</span> - uniemożliwa dodanie, usunięcie i zmianę nowych właściwości do obiektu.
       <span>Object.keys(objectName)</span> - zwraca tablicę z wszystkimi keysami z obiektu
+      <span>Object.create()</span> - metoda tworzy nowy obiekt używając istniejącegp obiektu
+      jako prototypu, dla nowo stworzonego obiektu.
     </pre>
   </section>
 
