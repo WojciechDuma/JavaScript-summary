@@ -375,6 +375,7 @@
       <span>.lastIndexOf();</span> // zwraca index pierwszego wystąpienia w tablicy od końca lub -1
       <span>.includes();</span>    // sprawdza tablice czy zawiera element, zwraca true, false
       <span>.find();</span>        // zwraca element, który jako pierwszy zwróci true
+      <span>.findIndex()</span>    // zwraca index z tablicy, który odpowiada warunkowi podanemu wewnątrz
 
       <span>
         someArray.sort(function(x, y){
@@ -722,8 +723,8 @@
       localStorage.removeItem('key');         // usunięcie
       localStorage.getItem('key');            // pobranie
       localStorage.clear();                   // czyszczenie
-      JSON.stringfy()                         // zamiana obiektu JavaScript na JSON (string)
-      JSON.parse()                            // zamiana JSON (stringa) na obiekt JavaScript
+      JSON.stringfy(obiekt)                   // zamiana obiektu JavaScript na JSON (string)
+      JSON.parse(string)                      // zamiana JSON (stringa) na obiekt JavaScript
     </pre>
   </section>
 
@@ -1045,7 +1046,7 @@
         <span>Promises:</span>
         Trzy stany Promise:
         1. Pending - oczekujący
-        2. Resolved - rozwiązany
+        2. Resolved - rozwiązany, fulfilled - spełniony
         3. Reject - odrzucony
 
         const promise = new Promise(function(resolve, reject){
@@ -1064,7 +1065,10 @@
         ################################
 
         <span>Fetch:</span> - fetch zwraca Promise
-        Fetch API: json() - z body wyodrębnia json
+        Fetch API: 
+        .json() - wyodrębnia json
+        .text() - wyodrębnia txt
+        .blob() - do pracy z obrazkami
 
         fetch("url")
             .then(response => response.json())
