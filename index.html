@@ -691,6 +691,7 @@
       <span>.classList</span> - dostanie się do wszystkich klas elementu
       <span>.className</span> - dostanie się do klasy, nadpisuje
       <span>.id</span> - dostanie się do ID, nadpisuje
+      <span>.dataset</span> - dostanie się do atrybutów 'data-*'
 
       <span>window.innerHeight</span> - określa jaką wielkość ma okno przeglądarki wewnątrz
       <span>window.innerWidth</span> - określa jaką szerokość na okno przeglądarki wewnątrz
@@ -715,6 +716,9 @@
       <span>.parentNode / .parentElement</span> - dostęp do rodzica
       <span>.firstChild</span>
       <span>.nextSibiling</span>
+      <span>.nextElementSibling</span>
+      <span>document.documentElement</span> - zwraca element który jest bezpośrednim
+                              dzieckiem 'document' (czyli dla HTML to &lt;html>)
       
       ---------------------------------------
       Local Storage:
@@ -1147,8 +1151,16 @@
       <span>console.table({a:1, b:2})</span> - wyświetla obiekt w tabeli
       <span>console.error('This is error')</span> - wyświetla error w consoli
       <span>console.warn('This is warn')</span> - wyświetla ostrzeżenie w consoli
+      <span>console.info('Some info')</span> - wyświetla informację w consoli
       <span>console.time('Start')</span> - początek zliczania czasu
       <span>console.timeEnd('Stop')</span> - koniec zliczania czasu
+      <span>console.assert(warunek, jeśli_jest_false)</span> - test, jeżeli warunek jest true
+      nic się nie wyświetli, jeżeli jest false - wyskoczy powiadomienie w consoli np.
+        console.log(1>2, 'To jest nieprawda');
+      <span>console.dir(p)</span> - lista wszystkich właściwości elementu 'p'
+      <span>console.group('Start')</span> - początek grupowania
+      <span>console.groupEnd('End')</span> - koniec grupowania
+      <span>console.count('...')</span> - zlicza wystąpienia stringa podanego w agrumencie
     </pre>
   </section>
 
