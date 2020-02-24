@@ -638,10 +638,19 @@
         // code;
       });
 
+      // Trzeci agrument to capture, który domyślnie jest ustawiony na false:
+      .addEventListener('event', functionName, capture: false);
+      "capture: false" - propagacja od elementu najniższego w górę drzewa DOM
+      "capture: true" - propagacja od najwyższego elementu do najniższego
+
+      // Kolejnym argumentem może być jeszcze: "once: true"
+      Jeżeli ustawimy go lisener to nasz event wykona się tylko raz
+
       function callbackFunctionName(event){}
 
       <span>event.preventDefault();</span> - zapobiega domyślnemu zachowaniu elementu
-      <span>event.target</span> - dostęp do elementu ze zdarzenia
+      <span>event.stopPropagation();</span> - przerwanie dalszej propagacji bieżącego zdarzenia
+      <span>event.target</span> - element który rozpoczyna zdarzenie (najgłębszy w drzewie DOM)
       <span>event.clientX</span> - odległość w pixelach w odniesieniu do okna przeglądrki
       <span>event.clientY</span> - odległość w pixelach w odniesieniu do okna przeglądrki
       <span>event.offsetX</span> - odległość w pixelach w odniesieniu do elementu
@@ -902,7 +911,7 @@
       <span>class Species {}</span>
 
       Tworzenie instancji klasy:
-      <span>const human = new Species();</span>
+      <span>const Human = new Species();</span>
 
       class ClassName {
           constructor(arg1, arg2, arg3){
